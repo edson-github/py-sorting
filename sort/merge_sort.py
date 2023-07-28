@@ -11,14 +11,8 @@ def sort(array, compare=default_compare):
     return array
 
   middle = math.floor(len(array) / 2)
-  left = []
-  right = []
-
-  for i in range(0, middle):
-    left.append(array[i])
-  for i in range(middle, len(array)):
-    right.append(array[i])
-
+  left = [array[i] for i in range(0, middle)]
+  right = [array[i] for i in range(middle, len(array))]
   return merge(sort(left, compare), sort(right, compare), compare)
 
 def merge(left, right, compare):
